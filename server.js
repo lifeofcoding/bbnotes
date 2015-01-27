@@ -22,6 +22,24 @@ app.get("/notes", function (req, res) {
     }));
 });
 
+app.get("/notes/:id", function (req, res) {
+    var found = false;
+
+    notes.some(function (note) {
+        if (note._id == req.params.id) {
+            found = note;
+            return true;
+        }
+    });
+
+    if (!found) {
+        res.status(404).end("Note not found");
+    }
+    else {
+        res.status(200).json(found);
+    }
+});
+
 app.post("/notes", function (req, res) {
     notes.push({
         _id: uuid.v1(),
@@ -36,11 +54,12 @@ app.post("/notes", function (req, res) {
 app.put("/notes/:id", function (req, res) {
     var found = false;
 
-    notes.filter(function (note) {
+    notes.some(function (note) {
         if (note._id == req.params.id && !note._deleted) {
             note.title = req.body.title;
             note.text = req.body.text;
             found = note;
+            return true;
         }
     });
 
@@ -48,17 +67,18 @@ app.put("/notes/:id", function (req, res) {
         res.status(404).end("Note not found");
     }
     else {
-        res.status(200).json(note);
+        res.status(200).json(found);
     }
 });
 
 app.delete("/notes/:id", function (req, res) {
     var found = false;
 
-    notes.filter(function (note) {
+    notes.some(function (note) {
         if (note._id == req.params.id & !note._deleted) {
             note._deleted = true;
             found = note;
+            return true;
         }
     });
 
