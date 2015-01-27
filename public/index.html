@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Backboned</title>
+    </head>
+
+    <body>
+        <nav id=nav-header></nav>
+
+        <main id=main-content></main>
+
+        <script type=text/template id=nav>
+            <nav>
+                <% if ("home" == page) { %>
+                    <span>home</span>
+                <% } else { %>
+                    <a href="#">home</a>
+                <% } %>
+
+                <% if ("notes" == page) { %>
+                    <span>notes</span>
+                <% } else { %>
+                    <a href="#notes">notes</a>
+                <% } %>
+
+                <% if ("create-note" == page) { %>
+                    <span>create note</span>
+                <% } else { %>
+                    <a href="#create-note">create note</a>
+                <% } %>
+            </nav>
+        </script>
+
+        <script type=text/template id=home>
+            <h1>Welcome to the bbnotes app!</h1>
+        </script>
+
+        <script type=text/template id=notes>
+            <ul class=notes-list>
+                <% notes.each(function (note) { %>
+                    <li>
+                        <a href="#edit-note/<%- note.id %>">
+                            <%- note.get("title") %></a>
+                        <span class=remove data-id="<%- note.id %>">X</span>
+                    </li>
+                <% }) %>
+            </ul>
+        </script>
+
+        <script type=text/template id=create-note>
+            <span class=invalid style="display: none; color: red;">Title and text required</span>
+            <form>
+                <label>
+                    Title: <input name=title type=text value="<%- note.get('title') %>">
+                </label>
+                <label>
+                    Text: <textarea name=text><%- note.get("text") %></textarea>
+                </label>
+                <% if (note.id) { %>
+                    <input type=submit value="Update Note">
+                <% } else { %>
+                    <input type=submit value="Add Note">
+                <% } %>
+            </form>
+        </script>
+
+        <script src=//code.jquery.com/jquery-2.1.3.min.js></script>
+        <script src=//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js></script>
+        <script src=//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js></script>
+
+        <script src="frame/NavView.js"></script>
+        <script src="home/HomeView.js"></script>
+
+        <script src="notes/Note.js"></script>
+        <script src="notes/Notes.js"></script>
+
+        <script src="notes/NotesView.js"></script>
+        <script src="notes/EditNoteView.js"></script>
+
+        <script src="router.js"></script>
+    </body>
+</html>
