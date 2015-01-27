@@ -30,7 +30,7 @@ app.post("/notes", function (req, res) {
         order: notes.length
     });
 
-    res.status(201).end();
+    res.status(201).json(notes[notes.length - 1]);
 });
 
 app.put("/notes/:id", function (req, res) {
