@@ -40,7 +40,6 @@ MOB.NotesView = Backbone.View.extend({
             note = self.notes.get($(event.target).data("id"));
 
         note.destroy().done(function () {
-            self.notes.remove(note);
             self.renderNotes();
         });
     },
