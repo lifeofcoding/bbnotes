@@ -1,0 +1,5 @@
+<form ng-submit=noteEdit.saveNote(noteEdit.getSelectedNote())>
+    <input name=title ng-model="noteEdit.getSelectedNote().title">
+    <textarea ng-model="noteEdit.getSelectedNote().text"></textarea>
+    <input type=submit value="{{noteEdit.submitMessage}}">
+</form>

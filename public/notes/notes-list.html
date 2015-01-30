@@ -1,0 +1,8 @@
+<ul>
+    <li ng-repeat="note in notesList.getNotes() track by note._id"
+        ng-click=notesList.selectNote(note)
+        note=note
+    >
+        <span ng-click="notesList.deleteNote($event, note)">X</span>
+    </note>
+</ul>
