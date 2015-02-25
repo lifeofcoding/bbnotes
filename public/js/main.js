@@ -6,7 +6,6 @@ MOB.Router = Backbone.Router.extend({
     routes: {
         '': 'homePage',
         'view': 'viewNotes',
-        'view/:order': 'viewNote',
         'add': 'addNote'
     },
 
@@ -36,21 +35,6 @@ MOB.Router = Backbone.Router.extend({
         MOB.notesListView = MOB.notesListView || new MOB.NotesListView;
 
         this.render(MOB.notesListView);
-    },
-
-    viewNote: function (order) {
-        MOB.addEditView = MOB.addEditView || new MOB.AddEditView;
-
-        var note = MOB.notes.findWhere({
-            order: parseInt(order)
-        });
-
-        if (note) {
-            MOB.addEditView.model = note;
-            this.render(MOB.addEditView);
-        } else {
-            this.viewNotes();
-        }
     },
 
     addNote: function () {

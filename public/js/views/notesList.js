@@ -8,8 +8,6 @@ MOB.NotesListView = Backbone.View.extend({
 
     initialize: function () {
         this.collection = MOB.notes;
-
-        this.listenTo(this.collection, 'reset add remove', this.render);
     },
 
     render: function () {

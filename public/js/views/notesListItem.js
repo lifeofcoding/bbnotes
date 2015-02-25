@@ -19,6 +19,5 @@ MOB.NotesListItemView = Backbone.View.extend({
 
     delete: function (e) {
         this.model.destroy();
-        this.remove();
     }
 });
