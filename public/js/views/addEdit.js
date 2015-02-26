@@ -20,10 +20,6 @@ MOB.AddEditView = Backbone.View.extend({
         var title = this.$('.title').val().trim();
         var text = this.$('.text').val().trim();
 
-        /*if (!title || !text) {
-            return;
-        }*/
-
         clearInputs = function () {
             this.$('.title').val('');
             this.$('.text').val('');
