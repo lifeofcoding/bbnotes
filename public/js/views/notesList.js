@@ -8,14 +8,20 @@ MOB.NotesListView = Backbone.View.extend({
 
     initialize: function () {
         this.collection = MOB.notes;
+		this.listenTo(this.collection, 'add remove', this.render);
     },
 
     render: function () {
+		
         this.$el.empty();
 
-        this.collection.each(function (item) {
-            this.$el.append(this.renderItem(item));
-        }, this);
+		if(this.collection.length > 0){
+	        this.collection.each(function (item) {
+	            this.$el.append(this.renderItem(item));
+	        }, this);
+		}else{
+			this.$el.append('<center>Nothing To See Here!</center>');
+		}
 
         return this;
     },

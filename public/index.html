@@ -15,7 +15,7 @@
         </script>
 
         <script type="text/template" class="nav-item-selected">
-            <%= text %>
+            <u><%= text %></u>
         </script>
 
         <script type="text/template" class="home-pane">
@@ -23,7 +23,7 @@
         </script>
 
         <script type="text/template" class="notes-list-item">
-            <i class="delete">&#x2715;</i> <%- title %>
+            <i class="delete">&#x2715;</i> <a href="#edit/<%- _id %>"><%- title %></a>
         </script>
 
         <script type="text/template" class="note-pane">

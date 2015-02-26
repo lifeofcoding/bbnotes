@@ -20,9 +20,9 @@ MOB.AddEditView = Backbone.View.extend({
         var title = this.$('.title').val().trim();
         var text = this.$('.text').val().trim();
 
-        if (!title || !text) {
+        /*if (!title || !text) {
             return;
-        }
+        }*/
 
         clearInputs = function () {
             this.$('.title').val('');
@@ -30,25 +30,23 @@ MOB.AddEditView = Backbone.View.extend({
 
             window.location.hash = 'view';
         }
+		
+		valError = function(error){
+			alert(error);
+		}
 
-        if (this.model.isNew()) {
-            MOB.notes.create({
-                title: title,
-                text: text
-            }, {
-                wait: true,
-                success: clearInputs
-            });
-        } else {
-            this.model.save({
-                title: title,
-                text: text
-            }, {
-                wait: true,
-                success: clearInputs
-            });
-        }
-
+		this.model.set({
+			title: title,
+			text: text
+        });
+		
+		if(!this.model.isValid()){
+			valError(this.model.validationError);
+		}else{
+			this.model.save().done(function(){
+				clearInputs();
+			});
+		}
         e.preventDefault();
 
         return false;
