@@ -7,7 +7,12 @@ var express = require("express"),
 
 app.use(express.static(path.join(__dirname, "public")));
 
-var notes = [];
+var notes = [{
+    _id: uuid.v1(),
+    title: "NOTE 1",
+    text: "This is the first note",
+    order: 0,
+}];
 
 app.use(bodyParser.json());
 

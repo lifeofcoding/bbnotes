@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #eee;
+}
+.clearfix::before,
+.clearfix::after {
+    content: " ";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+}
+.content {
+    padding: 10px;
+}

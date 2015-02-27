@@ -1,0 +1,21 @@
+.global-nav-container {
+    background-color: black;
+}
+.global-nav {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    font-size: 0;
+}
+.nav-item {
+    background-color: #777;
+    display: inline-block;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid red;
+}
+.nav-link {
+    color: white;
+    text-decoration: none;
+}

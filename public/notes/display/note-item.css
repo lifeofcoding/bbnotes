@@ -1,0 +1,21 @@
+.note-item {
+    overflow: hidden;
+    transition: all .6s;
+}
+.note-item.ng-enter {
+    max-height: 0;
+    opacity: 0;
+}
+.note-item.ng-enter-active,
+.note-item.ng-leave {
+    max-height: 50px;
+    opacity: 1;
+}
+.note-item.ng-leave-active {
+    max-height: 0;
+    opacity: 0;
+}
+
+.remove-note {
+    cursor: pointer;
+}
