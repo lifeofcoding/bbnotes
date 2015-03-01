@@ -27,7 +27,11 @@ angular.module("ang-bbnotes").factory("notes", ["$http", function ($http) {
                 }
             });
         };
-        notesArray.push(note);
+
+        var noteFound = _.findWhere(notesArray, {_id: note._id});
+        if(!noteFound){
+            notesArray.push(note);
+        }
     }
 
     notesService = {
@@ -43,9 +47,6 @@ angular.module("ang-bbnotes").factory("notes", ["$http", function ($http) {
 
         fetchNotes: function () {
             return $http.get("/notes").success(function (serverNotes) {
-                // clear the array
-                notesArray.splice(0);
-
                 serverNotes.forEach(addNote);
             });
         },
