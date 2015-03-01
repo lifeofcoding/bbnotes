@@ -4,15 +4,7 @@
     <link rel=stylesheet type=text/css href=index.css>
     <link rel=stylesheet type=text/css href=frame/navbar.css>
     <link rel=stylesheet type=text/css href=notes/display/note-item.css>
-
-    <nav class="global-nav-container clearfix">
-        <ul class=global-nav>
-            <li class=nav-item><a class=nav-link ui-sref=home>Go home</a></li>
-            <li class=nav-item><a class=nav-link ui-sref=notes>View Notes</a></li>
-            <li class=nav-item><a class=nav-link ui-sref=notes.add>Add Note</a></li>
-        </ul>
-    </nav>
-
+    <nav-bar></nav-bar>
     <main class=content ui-view></main>
 
      <script src=https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js></script>
@@ -27,6 +19,7 @@
     <script src=notes/edit/EditNoteController.js></script>
     <script src=notes/edit/AddNoteController.js></script>
     <script src=notes/display/noteItemDirective.js></script>
+     <script src=navDirective.js></script>
 
     <script src=home/HomeController.js></script>
 </html>
