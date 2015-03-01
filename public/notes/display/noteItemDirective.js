@@ -9,7 +9,9 @@ angular.module("ang-bbnotes").directive("noteItem", function () {
     return {
         scope: {
             "note": "=noteItem",
+            "ntitle": "@"
         },
+        bindToController: false,
         templateUrl: "notes/display/note-item.html",
     };
 });

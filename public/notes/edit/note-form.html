@@ -1,11 +1,14 @@
-<form ng-submit=note.save(note.note)>
-    <input ng-model=note.note.title>
+<div class="error test" ng-show="edit.text.$dirty && edit.text.$invalid ||
+  edit.title.$dirty && edit.title.$invalid"><small>Error All Field Required</small><br></div>
+<form ng-submit=note.save(note.note) novalidate name="edit">
+    <input name="title" ng-model="note.note.title" required>
 
     <br>
 
-    <textarea ng-model=note.note.text></textarea>
+    <textarea name="text" ng-model="note.note.text" required></textarea>
 
     <br>
 
-    <input type=submit value="Save Note">
+    <input type=submit value="Save Note" ng-disabled="edit.text.$dirty && edit.text.$invalid ||
+  edit.title.$dirty && edit.title.$invalid">
 </form>

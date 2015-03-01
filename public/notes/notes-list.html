@@ -1,7 +1,7 @@
 <a href="" ng-click=notesList.fetchNotes()>Fetch new notes</a>
 
 <ul>
-    <li class=note-item ng-repeat="note in notesList.notes" note-item=note />
+    <li class=note-item ng-repeat="note in notesList.notes" note-item=note ntitle={{note.title}} />
 </ul>
 
 <ui-view></ui-view>
