@@ -1,4 +1,4 @@
-angular.module("ang-bbnotes").factory("notes", ["$http", function ($http) {
+angular.module("ang-bbnotes").factory("notes", ["$http", "$state", function ($http, $state) {
     var notesService,
         notesArray = [];
 
@@ -26,12 +26,14 @@ angular.module("ang-bbnotes").factory("notes", ["$http", function ($http) {
                     notesArray.push(note);
                 }
             });
+            $state.go("notes");
         };
 
         var noteFound = _.findWhere(notesArray, {_id: note._id});
         if(!noteFound){
             notesArray.push(note);
         }
+        $state.go("notes");
     }
 
     notesService = {
