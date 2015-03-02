@@ -14,6 +14,10 @@ function ($stateProvider, $urlRouterProvider) {
             controller: "HomeController",
             controllerAs: "home",
             templateUrl: "home/home.html",
+            data: {
+                pageTitle: 'Home',
+                name: 'home'
+            }
         })
         // List of notes page
         .state("notes", {
@@ -21,6 +25,10 @@ function ($stateProvider, $urlRouterProvider) {
             controller: "NotesListController",
             controllerAs: "notesList",
             templateUrl: "notes/notes-list.html",
+            data: {
+                pageTitle: 'My Notes',
+                name: 'notes'
+            }
         })
             // Add a new note (must be before edit because otherwise the
             // edit route will match first)
@@ -29,6 +37,10 @@ function ($stateProvider, $urlRouterProvider) {
                 controller: "AddNoteController",
                 controllerAs: "note",
                 templateUrl: "notes/edit/note-form.html",
+                data: {
+                    pageTitle: 'Add Notes',
+                    name: 'add'
+                }
             })
             // Edit an individual note
             .state("notes.edit", {
@@ -36,6 +48,10 @@ function ($stateProvider, $urlRouterProvider) {
                 controller: "EditNoteController",
                 controllerAs: "note",
                 templateUrl: "notes/edit/note-form.html",
+                data: {
+                    pageTitle: 'Edit Note',
+                    name: 'edit'
+                }
             })
     ;
 }]);

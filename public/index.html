@@ -5,6 +5,8 @@
     <link rel=stylesheet type=text/css href=frame/navbar.css>
     <link rel=stylesheet type=text/css href=notes/display/note-item.css>
     <nav-bar></nav-bar>
+    <page-title></page-title>
+    <view-note></view-note>
     <main class=content ui-view></main>
 
      <script src=https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js></script>
@@ -15,11 +17,15 @@
 
     <script src=notes/notes.js></script>
     <script src=notes/NotesListController.js></script>
-
+    <script src=navService.js></script>
+     <script src=navController.js></script>
     <script src=notes/edit/EditNoteController.js></script>
     <script src=notes/edit/AddNoteController.js></script>
     <script src=notes/display/noteItemDirective.js></script>
-     <script src=navDirective.js></script>
+    <script src=notes/view/note.js></script>
+     <script src=notes/view/viewNoteDirective.js></script>
+    <script src=navDirective.js></script>
+    <script src=pageDirective.js></script>
 
     <script src=home/HomeController.js></script>
 </html>

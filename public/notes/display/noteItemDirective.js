@@ -9,7 +9,8 @@ angular.module("ang-bbnotes").directive("noteItem", function () {
     return {
         scope: {
             "note": "=noteItem",
-            "ntitle": "@"
+            "ntitle": "@",
+            "vnote": "&"
         },
         bindToController: false,
         templateUrl: "notes/display/note-item.html",

@@ -1,11 +1,15 @@
 angular.module("ang-bbnotes").factory("notes", ["$http", "$state", function ($http, $state) {
     var notesService,
+        self = this,
         notesArray = [];
-
+        
+        this.currentViewNote = {title: '', text: ''}
+        
     /**
      * Add a note to the notes list with extended functionality
      */
     function addNote(note) {
+        
         note.remove = function () {
             $http.delete("/notes/" + note._id).success(function () {
                 notesArray.splice(notesArray.indexOf(note));
@@ -37,6 +41,10 @@ angular.module("ang-bbnotes").factory("notes", ["$http", "$state", function ($ht
     }
 
     notesService = {
+        currentViewNote: function(){
+            return self.currentViewNote;
+        },
+            
         getNotes: function () {
             return notesArray;
         },
@@ -45,6 +53,15 @@ angular.module("ang-bbnotes").factory("notes", ["$http", "$state", function ($ht
             return notesArray.filter(function (note) {
                 return note._id === id;
             })[0];
+        },
+        
+        viewNote: function(id){
+            var note = notesArray.filter(function (note) {
+                return note._id === id;
+            })[0];
+
+            angular.extend(self.currentViewNote, note);
+            return this.currentViewNote();
         },
 
         fetchNotes: function () {
@@ -57,7 +74,7 @@ angular.module("ang-bbnotes").factory("notes", ["$http", "$state", function ($ht
             $http.post("/notes", note).success(function (note) {
                 addNote(note);
             });
-        },
+        }
     };
 
     notesService.fetchNotes();

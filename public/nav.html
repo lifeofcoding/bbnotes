@@ -1,7 +1,7 @@
 <nav class="global-nav-container clearfix">
     <ul class=global-nav>
-        <li class=nav-item><a class=nav-link ui-sref=home>Go home</a></li>
-        <li class=nav-item><a class=nav-link ui-sref=notes>View Notes</a></li>
-        <li class=nav-item><a class=nav-link ui-sref=notes.add>Add Note</a></li>
+        <li class=nav-item><a class=nav-link ui-sref="home" ng-class="{active: navCtl.page.isHome}">Go home</a></li>
+        <li class=nav-item><a class=nav-link ui-sref="notes" ng-class="{active: navCtl.page.isNotes}">View Notes</a></li>
+        <li class=nav-item><a class=nav-link ui-sref="notes.add" ng-class="{active: navCtl.page.isAdd}">Add Note</a></li>
     </ul>
 </nav>

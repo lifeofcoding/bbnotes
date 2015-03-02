@@ -1,5 +1,6 @@
-angular.module("ang-bbnotes").controller("EditNoteController", ["notes", "$stateParams", "$state",
-function (notes, $stateParams, $state) {
+angular.module("ang-bbnotes").controller("EditNoteController", ["notes", "$stateParams", "$state", "navService",
+function (notes, $stateParams, $state, navService) {
+    navService.setPage($state.current.data);
     var _note = notes.getNote($stateParams.id);
 
     if (!_note) {
